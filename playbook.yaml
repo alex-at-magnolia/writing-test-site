@@ -1,7 +1,7 @@
 site:
   title: Writing Test
   # the 404 page and sitemap files only get generated when the url property is set
-  url: https://antora.gitlab.io/demo/docs-site
+  url: https://magnolia-writing-test.netlify.app/
   start_page: writing-test::index.adoc
 content:
   sources:
