@@ -1,0 +1,5 @@
+= Welcome to the writing challenge
+
+There are two challenges to complete for the interview process.
+
+NOTE: This repository holds the site so we can view answers via an antora-site.
