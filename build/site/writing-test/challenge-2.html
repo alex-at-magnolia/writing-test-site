@@ -109,7 +109,8 @@
     <li><a href="challenge-2.html">Challenge 2</a></li>
   </ul>
 </nav>
-</div>
+  <div class="edit-this-page"><a href="https://github.com/dbrebu/Writing-Test_Diana-POPESCU/edit/main/modules/ROOT/pages/challenge-2.adoc">Edit this Page</a></div>
+  </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -148,6 +149,414 @@
 <h2 id="_answer"><a class="anchor" href="#_answer"></a>Answer</h2>
 <div class="sectionbody">
 
+</div>
+</div>
+<h1 id="_pullmerge_requests_for_beginners" class="sect0"><a class="anchor" href="#_pullmerge_requests_for_beginners"></a>Pull/Merge Requests for Beginners</h1>
+<div class="paragraph">
+<p>The pull request feature in GitHub is equivalent to the merge request feature in GitLab. Both these features are useful tools for code review and change management, as they allow you to pull changes from one branch or fork into your branch, and merge the changes with your existing code.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+A "merge request" should not be confused with the <code>git merge</code> command. Neither should a "pull request" be confused with the <code>git pull</code> command. Both <code>git</code> commands are used behind the scenes in both pull requests and merge requests, but a merge/pull request refers to a much broader topic than just these two commands.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In this chapter:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_about_pull_requests">About pull requests</a></p>
+</li>
+<li>
+<p><a href="#_about_merges">About merges</a></p>
+</li>
+<li>
+<p><a href="#_usage_example">Usage example</a></p>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_about_pull_requests"><a class="anchor" href="#_about_pull_requests"></a>About pull requests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pull requests provide developers with a user-friendly web interface for informing their team members of the changes they have made to the official project, and for discussing proposed changes before integrating (i.e., merging) them into the official project.</p>
+</div>
+<div class="paragraph">
+<p>Pull requests require two distinct branches or two distinct repositories, and can be used in any of the following situations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>when a developer completes a feature in an isolated branch, and wants to initiate a discussion around it before integrating it into a shared repository. See also the example in <a href="#_usage_example">Usage example</a>.</p>
+</li>
+<li>
+<p>when a developer pushes a completed feature to <em>their own</em> public repository instead of a shared one, and needs to let the project maintainer know that it’s ready for review</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pull requests generally follow the process below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Developer A creates a dedicated branch in their local repository to work on a new feature. See <a href="#_create_a_branch">Create a branch</a>.</p>
+</li>
+<li>
+<p>Developer A pushes the branch to a public GitHub repository. See <a href="#_commit_your_changes">Commit your changes</a>.</p>
+</li>
+<li>
+<p>Developer A files a pull request via GitHub. See <a href="#_create_a_pull_request">Create a pull request</a>.</p>
+</li>
+<li>
+<p>The rest of the team reviews the code, discusses it, and alters it.</p>
+</li>
+<li>
+<p>Once the pull request has been reviewed and approved, the project maintainer merges the feature into the official repository, and closes the pull request. See <a href="#_merge_the_pull_request">Merge the pull request</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_about_merges"><a class="anchor" href="#_about_merges"></a>About merges</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A merge is an operation in which two sets of changes are applied to a file or set of files. Merges are required in any of the following situations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A user, working on a set of files, updates or syncs their working copy with changes made, and checked into the repository, by other users.</p>
+</li>
+<li>
+<p>A user tries to check in files that have been updated by others since the files were checked out, and the revision control software automatically merges the files (typically, after prompting the user if it should proceed with the automatic merge, and in some cases only doing so if the merge can be clearly and reasonably resolved).</p>
+</li>
+<li>
+<p>A branch is created, the code in the files is independently edited, and the updated branch is later incorporated into a single, unified trunk.</p>
+</li>
+<li>
+<p>A set of files is branched, a problem that existed before the branching is fixed in one branch, and the fix is then merged into the other branch. (This type of selective merge is sometimes known as a cherry pick to distinguish it from the complete merge in the previous case.)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage_example"><a class="anchor" href="#_usage_example"></a>Usage example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The example below demonstrates how to use pull requests to initiate a discussion around a feature developed in an isolated branch before integrating it into the official repository:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_create_a_branch">Create a branch</a></p>
+</li>
+<li>
+<p><a href="#_switch_to_the_new_branch">Switch to the new branch</a></p>
+</li>
+<li>
+<p><a href="#_commit_your_changes">Commit your changes</a></p>
+</li>
+<li>
+<p><a href="#_create_a_pull_request">Create a pull request</a></p>
+</li>
+<li>
+<p><a href="#_resolve_merge_conflicts">Resolve merge conflicts</a></p>
+</li>
+<li>
+<p><a href="#_merge_the_pull_request">Merge the pull request</a></p>
+</li>
+<li>
+<p><a href="#_update_your_local_setup">Update your local setup</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_create_a_branch"><a class="anchor" href="#_create_a_branch"></a>Create a branch</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The procedure in this section assumes you have already cloned a GitHub repository on your computer. For information on how to clone a GitHub repository, see <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository" target="_blank" rel="noopener">Cloning a repository</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To create a branch from the current branch you are working in:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the repository on your computer.</p>
+</li>
+<li>
+<p>Enter the following command in Git Bash:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>git branch &lt;feature-branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Make sure the branch name does not include spaces.</p>
+</div>
+</li>
+<li>
+<p>Push the new branch to GitHub.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>git push --set-upstream origin &lt;feature-branch-name&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>--set-upstream</code> flag is required only when you need to create a new branch on the <code>origin</code> remote. For further commits, you can use the <code>git push</code> command as is.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_switch_to_the_new_branch"><a class="anchor" href="#_switch_to_the_new_branch"></a>Switch to the new branch</h3>
+<div class="paragraph">
+<p>To switch to the newly created branch and be able to modify any files required for your new feature, open Git Bash and enter the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>git checkout &lt;feature-branch-name&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_commit_your_changes"><a class="anchor" href="#_commit_your_changes"></a>Commit your changes</h3>
+<div class="paragraph">
+<p>To push the new branch that contains the changes for your new feature:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Modify any required files, and save your changes.</p>
+</li>
+<li>
+<p>In Git Bash, enter <code>git status</code> to check the state of your repository:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>tracked files</p>
+<div class="ulist">
+<ul>
+<li>
+<p>staged files</p>
+</li>
+<li>
+<p>unstaged files</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>untracked files</p>
+<div class="paragraph">
+<p>See <a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository" target="_blank" rel="noopener">Git Basics - Recording Changes to the Repository</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add the files to staging:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>git add .</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Commit the changes, and add a meaningful message for later reference:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>git commit -m "&lt;your message here&gt;"</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Push the changes to GitHub:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>git push</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_a_pull_request"><a class="anchor" href="#_create_a_pull_request"></a>Create a pull request</h3>
+<div class="paragraph">
+<p>To create a pull request and initiate a discussion around the feature you have just pushed:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to your repository on <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a>.</p>
+</li>
+<li>
+<p>In the top pane, click <strong>Pull requests</strong>.</p>
+</li>
+<li>
+<p>Click the <strong>Compare &amp; pull request</strong> button.</p>
+<div class="paragraph">
+<p>If you change the same part of the same file differently in the two branches you are trying to merge, GitHub displays a warning that looks something like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/git_merge_conflict.png" alt="git merge conflict">
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="#_resolve_merge_conflicts">Resolve merge conflicts</a> for details.</p>
+</div>
+</li>
+<li>
+<p>Enter an explanation of the changes you made.</p>
+</li>
+<li>
+<p>Click <strong>Create pull request</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Any subsequent changes you make to the same branch are added to this pull request. The changes you have made are visible in the <em>Files changed</em> tab.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resolve_merge_conflicts"><a class="anchor" href="#_resolve_merge_conflicts"></a>Resolve merge conflicts</h3>
+<div class="paragraph">
+<p>To help you easily identify the merge conflicts, GitHub adds standard conflict-resolution markers to the files that have conflicts. To resolve a merge conflict:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the pull request.</p>
+</li>
+<li>
+<p>In the _Conversation_tab, click <strong>Resolve conflicts</strong>.</p>
+<div class="paragraph">
+<p>The file is opened in the web editor.</p>
+</div>
+</li>
+<li>
+<p>Identify the section(s) marked by GitHub with conflict-resolution markers.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/git_resolve_conflict.png" alt="git resolve conflict">
+</div>
+</div>
+<div class="paragraph">
+<p>The section above the <code>=======</code> line shows the changes in the branch from which you initiated the merge request, while the section below the <code>=======</code> line shows the changes in the branch where you are trying to merge your changes.</p>
+</div>
+</li>
+<li>
+<p>Decide on the changes that you want to keep.</p>
+</li>
+<li>
+<p>Remove the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> lines.</p>
+</li>
+<li>
+<p>Click <strong>Mark as resolved</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Commit merge</strong>.</p>
+</li>
+<li>
+<p>Follow the steps in the <a href="#_merge_the_pull_request">Merge the pull request</a> section below.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_merge_the_pull_request"><a class="anchor" href="#_merge_the_pull_request"></a>Merge the pull request</h3>
+<div class="paragraph">
+<p>After your changes have been verified, it is time to merge them into your main branch:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click <strong>Merge pull request</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Confirm merge</strong>.</p>
+<div class="paragraph">
+<p>A message is displayed to confirm that your branch has been merged.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_your_local_setup"><a class="anchor" href="#_update_your_local_setup"></a>Update your local setup</h3>
+<div class="paragraph">
+<p>To update the changes locally:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Switch to the initial remote branch:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>git checkout &lt;initial-remote-branch&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Pull the changes from GitHub:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>git pull</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>(Optional)</em> Delete the merged branch locally:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>git branch -d &lt;feature-branch-name&gt;</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </article>
