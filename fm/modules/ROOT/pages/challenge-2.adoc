@@ -1,0 +1,77 @@
+= Challenge 2
+
+Your second challenge awaits! 
+
+In this challenge, we want to see how comfortable you are explaining a technical topic.
+
+Your audience is someone technical, but new to link:https://en.wikipedia.org/wiki/Version_control[version control^].
+
+== Instructions
+
+. Explain what a merge request/pull request is.
+. Give examples on how to use it.
+
+== Answer
+
+Software teams have many developers and non-developers who work on different tasks. Someone may need to work on a task that is in the front end, whereas someone else may be working on the back end. In the end, they are going to need to have all their changes in the same software system.
+
+To help with that, one of the commonly used practices in the modern software world is the usage of version control, which makes it possible to track and manage changes to software systems, documents like this one, or any other file.
+
+For example, we can write an initial draft of this article and save these changes by creating a current version using a commit that represents this version. Let us suppose that one editor in our team is going to review this article and delete an entire paragraph from the initial draft, as it doesn't provide any value to the reader. The editor saves this new version of this article as a commit in her local environment which is then pushed to a central repository. 
+
+If after some time, say a couple of weeks, we find out that the deleted paragraph was indeed providing some helpful explanations to our audience, we do not have to write that same paragraph all over again. We can instead go back and revert that one that got deleted.
+
+Deleting that paragraph was just one example. We could have made many more changes since then and still have the opportunity to revert that paragraph or any other paragraph back again.
+
+image::Drafts.png[role="zoom"]
+
+
+=== Pull Requests
+
+One way how teams leverage version control is through the use of pull requests, also known as merge requests. In simple terms, pull requests help teams organize their work in batches of one or more commits, i.e. multiple changes to one or more files, which are then pushed to a centralized repository. 
+
+These changes are grouped into a request as a way for one or more contributors of those changes to have those changes included in a version of the software project. 
+
+This pull request can be set to have one or more team members review the changes and give their green light that these changes can be merged, and then have these changes get merged.
+
+It can also be the case that there is no need for formal approval of those changes, but they can instead just get merged immediately by another team member, or even by the person who created the _pull request_.
+
+This new version of the software with the latest changes merged can be the one that goes into a development server, or can even immediately get deployed to a production server that is used by the end users.
+
+image::Team.png[role="zoom"]
+
+Changes included in _pull requests_ can be the ones that are included in the main branch, commonly known as the _main_ or the _master_ branch. 
+
+To better understand branches, we can think of the software system as a lane. As many people can work on the same project, we need to let them work independently and still have their work included in the main lane. 
+
+To help with that, we can have branches that can be created and then get merged in the same project, making sure that changes from any branch do not cancel each other out, but are coherently included in the project that then gets deployed to the end user. 
+
+This happens by creating new branches. After one or more developers finish the work on a branch, they can submit a _pull request_, asking for their changes to be included in the _main_ branch.
+
+image::Branches.png[role="zoom"]
+
+It can be the case that even though a pull request has been submitted, the reviewer thinks that something can be missing or unnecessary, or the implementation could have been done better. They can give their opinions about that by leaving comments on the pull request and asking for new changes to be pushed to the same pull request.
+
+Once this pull request gets merged into another branch, which is usually the _development_ branch, or even the _main_/_master_ branch, these previously used branches can be deleted, as they are no longer expected to be used in the future and to avoid the clutter. 
+
+In case there is a need for new similar implementations in that same feature in the future, then a new corresponding branch can be created and named based on the name of a particular task, or the feature itself.
+
+=== Example
+
+Let us say that we have a team consisting of 2 developers named Ben and Bob working on a TODO web application, which helps users organize their tasks.
+
+Let us assume that Ben is working on implementing the function that helps users delete tasks and Ben is working on implementing the function of adding due dates to tasks.
+
+Both of them create new local branches from the _main_ branch in their local machines. Ben creates a new branch called _feature-delete-tasks_, whereas Bob creates a new branch called _feature-add-due-dates_.
+
+They immediately start working on implementing these new functionalities. As they want to track changes that they make, they keep committing considerable changes, so that these versions are saved and pushed into their corresponding branches. 
+
+NOTE: There is no strict rules here, but it is a good practice to keep committing frequent changes, so that they get saved in the commit history, thus allowing developers to go back and see how things were before a change caused some malfunctioning, or the failing of a few integration tests.
+
+Once they are done, they create new pull requests, asking for each other's opinions and reviewing the implementations pushed.
+
+Let us assume that Ben thinks that Bob forgot to consider the case when someone has not included the year at all and is still able to add a due date to a task. Ben leaves a comment about that in the pull request, asking for Bob to push newly committed changes with implementations that take such cases into consideration.
+
+Bob then pushes his changes and in the meantime, he approves and merges the pull request submitted by Bob, as he is satisfied with the implementation. Changes pushed by Bob are then included in the main branch. 
+
+Bob then also approves Bob's latest changes and merges the pull request in the main branch. Now, these 2 new features are included in the main branch and are deployed into production. The end-user can now use these changes.

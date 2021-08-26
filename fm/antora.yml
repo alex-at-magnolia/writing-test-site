@@ -1,0 +1,5 @@
+name: fatos
+title: Writing Test
+version: fatos
+nav:
+ - modules/ROOT/nav.adoc

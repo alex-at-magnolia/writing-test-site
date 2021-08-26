@@ -1,0 +1,63 @@
+= Challenge 1
+
+Your first challenge awaits! 
+
+In this challenge, we want to get an idea of your writing style as it relates to software and computer technology.
+
+== Instructions
+
+. Choose any software or application that you use regularly.
+. Write instructions on how to perform a common task related to the software or application.
+
+.Example please?
+****
+Some ideas to get you started:
+
+* Sending an attachment in link:https://signal.org/[Signal^].
+* Forwarding an email with link:https://www.google.com/gmail/about/[Gmail^].
+* Publishing a blog post with link:https://wordpress.com/[Wordpress^].
+* Adding an extension to link:https://code.visualstudio.com/[Visual Studio Code^].
+* Taking a screenshot with an link:https://www.apple.com/iphone/[iPhone^].
+****
+
+TIP: Keep the task concise. There's no need to over-complicate the instructions.
+
+== Answer
+
+// your answer goes here
+
+= Work with extensions
+
+Visual Studio Code lets you add extensions such as languages, debuggers, and tools on top of the out-of-the-box features. This section describes how to find and install a Visual Studio Code extension.
+
+== Find an extension
+
+To browse the extensions in Visual Studio Code:
+
+. Click the _Extensions_ icon (image:extension_icon.png[alt=Extension,width=20,height=20,align="center"]) in the Activity Bar on the left side of Visual Studio Code or go to *View* > *Extensions* to bring up the _Extensions_ view.
++
+This displays the list of extensions that are currently enabled, as well as extensions recommended for your installation.
+. Choose one of the recommended extensions or use the search box to filter the list of available extensions to extensions whose title or metadata contain your search term. See <<Install an extension>> for an example on how to install the Docker extension.
+
+== Install an extension
+
+To install an extension:
+
+. Browse for the required extension, as described in the <<Find an extension>> section above.
+. Click *Install*.
++
+Wait until Visual Studio Code downloads and installs the extension from the Marketplace.
++
+When the installation is complete, the *Install* button is replaced with a *Manage* gear button (image:manage_icon.png[alt=Manage,width=20,height=20,align="center"]).
+
+The procedure below shows how to install the Docker extension. This extension makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. It also provides one-click debugging of `Node.js`, `Python`, and `.NET Core` inside a container.
+
+. In the _Extensions_ view, type 'docker' in the search box to filter the Marketplace offerings to extensions with 'docker' in the title or metadata.
++
+image::docker_search.png[]
+. Click *Install*, and wait for the Docker extension to be downloaded and installed.
++
+Notice that, in the _Extensions_ view, the *Install* button is replaced with a *Manage* gear button.
++
+image::docker_manage.png[]
+

@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://magnolia-writing-test.netlify.app/writing-test/challenge-1.html</loc>
-<lastmod>2021-08-19T12:50:29.257Z</lastmod>
-</url>
-<url>
-<loc>https://magnolia-writing-test.netlify.app/writing-test/challenge-2.html</loc>
-<lastmod>2021-08-19T12:50:29.257Z</lastmod>
-</url>
-<url>
-<loc>https://magnolia-writing-test.netlify.app/writing-test/index.html</loc>
-<lastmod>2021-08-19T12:50:29.257Z</lastmod>
-</url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemap>
+<loc>https://magnolia-writing-test.netlify.app/sitemap-diana.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://magnolia-writing-test.netlify.app/sitemap-fatos.xml</loc>
+</sitemap>
+</sitemapindex>

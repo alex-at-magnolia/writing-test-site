@@ -1,0 +1,209 @@
+= Challenge 2
+
+Your second challenge awaits! 
+
+In this challenge, we want to see how comfortable you are explaining a technical topic.
+
+Your audience is someone technical, but new to link:https://en.wikipedia.org/wiki/Version_control[version control^].
+
+== Instructions
+
+. Explain what a merge request/pull request is.
+. Give examples on how to use it.
+
+== Answer
+
+// your answer goes here
+
+= Pull/Merge Requests for Beginners
+
+The pull request feature in GitHub is equivalent to the merge request feature in GitLab. Both these features are useful tools for code review and change management, as they allow you to pull changes from one branch or fork into your branch, and merge the changes with your existing code.
+
+IMPORTANT: A "merge request" should not be confused with the `git merge` command. Neither should a "pull request" be confused with the `git pull` command. Both `git` commands are used behind the scenes in both pull requests and merge requests, but a merge/pull request refers to a much broader topic than just these two commands.
+
+In this chapter:
+
+* <<About pull requests>>
+* <<About merges>>
+* <<Usage example>>
+
+== About pull requests
+
+Pull requests provide developers with a user-friendly web interface for informing their team members of the changes they have made to the official project, and for discussing proposed changes before integrating (i.e., merging) them into the official project.
+
+Pull requests require two distinct branches or two distinct repositories, and can be used in any of the following situations:
+
+* when a developer completes a feature in an isolated branch, and wants to initiate a discussion around it before integrating it into a shared repository. See also the example in <<Usage example>>.
+* when a developer pushes a completed feature to _their own_ public repository instead of a shared one, and needs to let the project maintainer know that it’s ready for review
+
+Pull requests generally follow the process below:
+
+* Developer A creates a dedicated branch in their local repository to work on a new feature. See <<Create a branch>>.
+
+* Developer A pushes the branch to a public GitHub repository. See <<Commit your changes>>.
+
+* Developer A files a pull request via GitHub. See <<Create a pull request>>.
+
+* The rest of the team reviews the code, discusses it, and alters it.
+
+* Once the pull request has been reviewed and approved, the project maintainer merges the feature into the official repository, and closes the pull request. See <<Merge the pull request>>.
+
+== About merges
+
+A merge is an operation in which two sets of changes are applied to a file or set of files. Merges are required in any of the following situations:
+
+* A user, working on a set of files, updates or syncs their working copy with changes made, and checked into the repository, by other users.
+* A user tries to check in files that have been updated by others since the files were checked out, and the revision control software automatically merges the files (typically, after prompting the user if it should proceed with the automatic merge, and in some cases only doing so if the merge can be clearly and reasonably resolved).
+* A branch is created, the code in the files is independently edited, and the updated branch is later incorporated into a single, unified trunk.
+* A set of files is branched, a problem that existed before the branching is fixed in one branch, and the fix is then merged into the other branch. (This type of selective merge is sometimes known as a cherry pick to distinguish it from the complete merge in the previous case.)
+
+== Usage example
+
+The example below demonstrates how to use pull requests to initiate a discussion around a feature developed in an isolated branch before integrating it into the official repository:
+
+* <<Create a branch>>
+* <<Switch to the new branch>>
+* <<Commit your changes>>
+* <<Create a pull request>>
+* <<Resolve merge conflicts>>
+* <<Merge the pull request>>
+* <<Update your local setup>>
+
+=== Create a branch
+
+NOTE: The procedure in this section assumes you have already cloned a GitHub repository on your computer. For information on how to clone a GitHub repository, see link:https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository[Cloning a repository^].
+
+To create a branch from the current branch you are working in:
+
+. Open the repository on your computer.
+. Enter the following command in Git Bash:
++
+[source]
+----
+git branch <feature-branch-name>
+----
++
+Make sure the branch name does not include spaces.
+. Push the new branch to GitHub.
++
+[source]
+----
+git push --set-upstream origin <feature-branch-name>
+----
+
++
+NOTE: The `--set-upstream` flag is required only when you need to create a new branch on the `origin` remote. For further commits, you can use the `git push` command as is.
+
+=== Switch to the new branch
+
+To switch to the newly created branch and be able to modify any files required for your new feature, open Git Bash and enter the following command:
+
+[source]
+----
+git checkout <feature-branch-name>
+----
+
+=== Commit your changes
+
+To push the new branch that contains the changes for your new feature:
+
+. Modify any required files, and save your changes.
+. In Git Bash, enter `git status` to check the state of your repository:
+* tracked files
+** staged files
+** unstaged files
+* untracked files 
++
+See link:https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository[Git Basics - Recording Changes to the Repository^].
+
+. Add the files to staging:
++
+[source]
+----
+git add .
+----
+
+. Commit the changes, and add a meaningful message for later reference:
++
+[source]
+----
+git commit -m "<your message here>"
+----
+
+. Push the changes to GitHub:
++
+[source]
+----
+git push
+----
+
+=== Create a pull request
+
+To create a pull request and initiate a discussion around the feature you have just pushed:
+
+. Go to your repository on link:https://github.com/[https://github.com/^].
+. In the top pane, click *Pull requests*.
+. Click the *Compare & pull request* button.
++
+If you change the same part of the same file differently in the two branches you are trying to merge, GitHub displays a warning that looks something like this:
++
+image::git_merge_conflict.png[]
++
+See <<Resolve merge conflicts>> for details.
+. Enter an explanation of the changes you made.
+. Click *Create pull request*.
+
+TIP: Any subsequent changes you make to the same branch are added to this pull request. The changes you have made are visible in the _Files changed_ tab.
+
+=== Resolve merge conflicts
+
+To help you easily identify the merge conflicts, GitHub adds standard conflict-resolution markers to the files that have conflicts. To resolve a merge conflict:
+
+. Open the pull request.
+. In the _Conversation_tab, click *Resolve conflicts*.
++
+The file is opened in the web editor.
+. Identify the section(s) marked by GitHub with conflict-resolution markers.
++
+image::git_resolve_conflict.png[]
++
+The section above the `=======` line shows the changes in the branch from which you initiated the merge request, while the section below the `=======` line shows the changes in the branch where you are trying to merge your changes.
+. Decide on the changes that you want to keep.
+. Remove the `<<<<<<<`, `=======`, and `>>>>>>>` lines.
+. Click *Mark as resolved*.
+. Click *Commit merge*.
+. Follow the steps in the <<Merge the pull request>> section below.
+
+=== Merge the pull request
+
+After your changes have been verified, it is time to merge them into your main branch:
+
+. Click *Merge pull request*.
+. Click *Confirm merge*.
++
+A message is displayed to confirm that your branch has been merged.
+
+=== Update your local setup
+
+To update the changes locally:
+
+. Switch to the initial remote branch:
++
+[source]
+----
+git checkout <initial-remote-branch>
+----
+
+. Pull the changes from GitHub:
++
+[source]
+----
+git pull
+----
+
+. _(Optional)_ Delete the merged branch locally:
++
+[source]
+----
+git branch -d <feature-branch-name>
+----

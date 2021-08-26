@@ -1,0 +1,41 @@
+= Challenge 1
+
+Your first challenge awaits! 
+
+In this challenge, we want to get an idea of your writing style as it relates to software and computer technology.
+
+== Instructions
+
+. Choose any software or application that you use regularly.
+. Write instructions on how to perform a common task related to the software or application.
+
+.Example please?
+****
+Some ideas to get you started:
+
+* Sending an attachment in link:https://signal.org/[Signal^].
+* Forwarding an email with link:https://www.google.com/gmail/about/[Gmail^].
+* Publishing a blog post with link:https://wordpress.com/[Wordpress^].
+* Adding an extension to link:https://code.visualstudio.com/[Visual Studio Code^].
+* Taking a screenshot with an link:https://www.apple.com/iphone/[iPhone^].
+****
+
+TIP: Keep the task concise. There's no need to over-complicate the instructions.
+
+== Answer
+
+Once an email has reached your Gmail inbox, you can forward it to another email address really quickly.
+
+To do that, go inside the page of the email you want to forward, you need to click the three dots that are at the top right corner, next to star icon and reply icon:
+
+image::First.png[role="zoom"]
+
+After that, a new window will show up where you need to select the Forward item from the list of options:
+
+image::Second.png[role="zoom"]
+
+After that, you are going to have a new email composition window showing right beneath the email, asking you to write the email address where we want to forward it to. You can also add a message that shows at the top of the forwared email. 
+
+After you are done with specifying the receiver and the message that will show at the top of the forwarded email, you need to just click _Send_:
+
+image::Third.png[role="zoom"]
